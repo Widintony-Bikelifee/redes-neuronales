@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Clasificador de Correos IA</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+background:#111827;
+padding:30px;
+border-radius:10px;
+width:400px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+margin-top:10px;
+padding:10px;
+width:100%;
+background:#6366f1;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.resultado{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Clasificador de Correos</h2>
+
+<input id="texto" placeholder="Escribe asunto del correo">
+
+<button onclick="clasificar()">Clasificar</button>
+
+<div class="resultado" id="resultado"></div>
+
+</div>
+
+<script>
+
+function clasificar(){
+
+const texto = document.getElementById("texto").value;
+
+fetch("/clasificar",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body: JSON.stringify({texto})
+})
+.then(r=>r.json())
+.then(data=>{
+document.getElementById("resultado").innerHTML =
+"Clasificación: " + data.categoria
+})
+
+}
+
+</script>
+
+</body>
+</html>
