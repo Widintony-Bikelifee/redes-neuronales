@@ -1,16 +1,5 @@
 import numpy as np
 
-# PALABRAS 
-
-palabras = [
-    "factura",     # 0
-    "contraseña",  # 1
-    "reunion",     # 2
-    "oferta",      # 3
-    "proyecto",    # 4
-    "premio",      # 5
-    "descuento"    # 6
-]
 
 # PERCEPTRÓN SIMPLE
 class PerceptronSimple:
@@ -38,7 +27,16 @@ class PerceptronSimple:
                 self.pesos[1:] += self.tasa_aprendizaje * error * entradas
                 self.pesos[0] += self.tasa_aprendizaje * error
 
-
+# PALABRAS 
+palabras = [
+    "factura",     # 0
+    "contraseña",  # 1
+    "reunion",     # 2
+    "oferta",      # 3
+    "proyecto",    # 4
+    "premio",      # 5
+    "descuento"    # 6
+]
 
 
 
