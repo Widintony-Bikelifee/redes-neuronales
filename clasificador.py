@@ -178,6 +178,15 @@ def mostrar_pesos():
 def clasificar_correo(texto):
 
     vector, detectadas = vectorizar(texto)
+    
+     if sum(vector) == 0:
+        return {
+            "categoria": "No asignado",
+            "vector": vector.tolist(),
+            "palabras": [],
+            "p1": None,
+            "p2": None
+        } 
 
     # ─── PERCEPTRÓN 1 ───
     suma1 = p1.suma_ponderada(vector)
