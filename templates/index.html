@@ -1,175 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Clasificador de Correos IA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800;900&family=Barlow+Condensed:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Clasificador de Correos IA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800;900&family=Barlow+Condensed:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <section class="hero">
+      <div class="curve"></div>
 
-<section class="hero">
-  <div class="curve"></div>
+      <div class="inner">
+        <!-- LEFT: texto hero -->
+        <div class="left">
+          <div class="eyebrow">ASY-DETECTOR</div>
+          <h1 class="main-title">
+            <span class="t1">Clasificador</span>
+            <span class="t2">de Correos</span>
+          </h1>
+          <p class="desc">
+            Detecta automáticamente si un correo es spam, promoción, importante
+            o notificación aplicando perceptron
+          </p>
+          <a class="cta-link">
+            Julian Portilla <br />
+            Omar Pabon <br />
+            Jeison Taimbud <br />
+            Widinton Taimbud</a
+          >
+        </div>
 
-  <div class="inner">
-
-    <!-- LEFT: texto hero -->
-    <div class="left">
-      <div class="eyebrow">ASY-DETECTOR</div>
-      <h1 class="main-title">
-        <span class="t1">Clasificador</span>
-        <span class="t2">de Correos</span>
-      </h1>
-      <p class="desc">
-        Detecta automáticamente si un correo es spam, promoción, importante o notificación aplicando perceptron
-      </p>
-      <a class="cta-link">
-            Julian Portilla <br>
-            Omar Pabon <br>
-            Jeison Taimbud <br>
-            Widinton Taimbud</a>
-    </div>
-
-    <!-- CENTER: ilustración de sobre -->
-    <div class="center">
-      <div class="envelope-wrap">
-        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="200" cy="285" rx="130" ry="10" fill="rgba(0,0,0,0.12)"/>
-          <rect x="30" y="80" width="340" height="200" rx="12" fill="#e8edf5"/>
-          <rect x="30" y="80" width="340" height="200" rx="12" fill="url(#envGrad)"/>
-          <path d="M30 80 L200 10 L370 80 Z" fill="#d0d8e8"/>
-          <path d="M30 80 L200 10 L370 80 Z" fill="url(#flapGrad)"/>
-          <path d="M30 280 L190 165" stroke="#c5cdd8" stroke-width="1.5"/>
-          <path d="M370 280 L210 165" stroke="#c5cdd8" stroke-width="1.5"/>
-          <rect x="70" y="100" width="260" height="160" rx="8" fill="white" opacity="0.95"/>
-          <rect x="70" y="100" width="260" height="160" rx="8" fill="url(#cardGrad)" opacity="0.95"/>
-          <rect x="70" y="100" width="260" height="36" rx="8" fill="#1a8fe3"/>
-          <rect x="70" y="124" width="260" height="12" fill="#1a8fe3"/>
-          <text x="200" y="124" font-size="18" font-family="Arial" text-anchor="middle" fill="white" font-weight="bold">✉</text>
-          <rect x="90" y="152" width="180" height="8" rx="4" fill="#e0e5f0"/>
-          <rect x="90" y="168" width="140" height="7" rx="3.5" fill="#e8ecf5"/>
-          <rect x="90" y="183" width="160" height="7" rx="3.5" fill="#e8ecf5"/>
-          <rect x="90" y="198" width="100" height="7" rx="3.5" fill="#eef0f7"/>
-          <rect x="90" y="218" width="72" height="22" rx="11" fill="#1a8fe3" opacity="0.15"/>
-          <text x="126" y="233" font-size="10" font-family="Barlow, Arial" text-anchor="middle" fill="#1a8fe3" font-weight="700">SPAM</text>
-          <rect x="170" y="218" width="82" height="22" rx="11" fill="#22c55e" opacity="0.15"/>
-          <text x="211" y="233" font-size="10" font-family="Barlow, Arial" text-anchor="middle" fill="#16a34a" font-weight="700">TRABAJO</text>
-          <rect x="290" y="60" width="88" height="30" rx="15" fill="#1a8fe3" opacity="0.9"/>
-          <text x="334" y="79" font-size="11" font-family="Barlow, Arial" text-anchor="middle" fill="white" font-weight="700">IA Activa ✦</text>
-          <rect x="22" y="150" width="34" height="34" rx="10" fill="white" opacity="0.9" filter="url(#shadow2)"/>
-          <text x="39" y="173" font-size="18" text-anchor="middle">📧</text>
-          <defs>
-            <linearGradient id="envGrad" x1="30" y1="80" x2="30" y2="280" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#dde4f0"/>
-              <stop offset="100%" stop-color="#c8d2e4"/>
-            </linearGradient>
-            <linearGradient id="flapGrad" x1="30" y1="10" x2="30" y2="80" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#c5cedf"/>
-              <stop offset="100%" stop-color="#d8e0ee"/>
-            </linearGradient>
-            <linearGradient id="cardGrad" x1="70" y1="100" x2="70" y2="260" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="white"/>
-              <stop offset="100%" stop-color="#f4f6fb"/>
-            </linearGradient>
-            <filter id="shadow2">
-              <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.12"/>
-            </filter>
-          </defs>
-        </svg>
-      </div>
-    </div>
-
-    <!-- RIGHT: formulario -->
-    <div class="right">
-      <div class="card">
-        <div class="card-eyebrow">Detector de correo</div>
-        <div class="card-title">Clasifica tu correo</div>
-
-        <input id="texto" type="text" placeholder="Escribe asunto del correo" autocomplete="off">
-
-        <button onclick="clasificar()" id="btn">
-          <span class="btn-icon" id="btn-icon"></span>
-          <span id="btn-text">Clasificar</span>
-          <div class="spinner" id="spinner"></div>
-        </button>
-
-        <div class="resultado" id="resultado"></div>
-
-        <div class="result-card" id="result-card">
-          <div class="result-label">Tu correo es:</div>
-          <div class="result-value">
-            <div class="dot"></div>
-            <span id="result-text">—</span>
+        <!-- CENTER: ilustración de sobre -->
+        <div class="center">
+          <div class="envelope-wrap">
+            <svg
+              viewBox="0 0 400 300"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="200"
+                cy="285"
+                rx="130"
+                ry="10"
+                fill="rgba(0,0,0,0.12)"
+              />
+              <rect
+                x="30"
+                y="80"
+                width="340"
+                height="200"
+                rx="12"
+                fill="#e8edf5"
+              />
+              <rect
+                x="30"
+                y="80"
+                width="340"
+                height="200"
+                rx="12"
+                fill="url(#envGrad)"
+              />
+              <path d="M30 80 L200 10 L370 80 Z" fill="#d0d8e8" />
+              <path d="M30 80 L200 10 L370 80 Z" fill="url(#flapGrad)" />
+              <path d="M30 280 L190 165" stroke="#c5cdd8" stroke-width="1.5" />
+              <path d="M370 280 L210 165" stroke="#c5cdd8" stroke-width="1.5" />
+              <rect
+                x="70"
+                y="100"
+                width="260"
+                height="160"
+                rx="8"
+                fill="white"
+                opacity="0.95"
+              />
+              <rect
+                x="70"
+                y="100"
+                width="260"
+                height="160"
+                rx="8"
+                fill="url(#cardGrad)"
+                opacity="0.95"
+              />
+              <rect
+                x="70"
+                y="100"
+                width="260"
+                height="36"
+                rx="8"
+                fill="#1a8fe3"
+              />
+              <rect x="70" y="124" width="260" height="12" fill="#1a8fe3" />
+              <text
+                x="200"
+                y="124"
+                font-size="18"
+                font-family="Arial"
+                text-anchor="middle"
+                fill="white"
+                font-weight="bold"
+              >
+                ✉
+              </text>
+              <rect
+                x="90"
+                y="152"
+                width="180"
+                height="8"
+                rx="4"
+                fill="#e0e5f0"
+              />
+              <rect
+                x="90"
+                y="168"
+                width="140"
+                height="7"
+                rx="3.5"
+                fill="#e8ecf5"
+              />
+              <rect
+                x="90"
+                y="183"
+                width="160"
+                height="7"
+                rx="3.5"
+                fill="#e8ecf5"
+              />
+              <rect
+                x="90"
+                y="198"
+                width="100"
+                height="7"
+                rx="3.5"
+                fill="#eef0f7"
+              />
+              <rect
+                x="90"
+                y="218"
+                width="72"
+                height="22"
+                rx="11"
+                fill="#1a8fe3"
+                opacity="0.15"
+              />
+              <text
+                x="126"
+                y="233"
+                font-size="10"
+                font-family="Barlow, Arial"
+                text-anchor="middle"
+                fill="#1a8fe3"
+                font-weight="700"
+              >
+                SPAM
+              </text>
+              <rect
+                x="170"
+                y="218"
+                width="82"
+                height="22"
+                rx="11"
+                fill="#22c55e"
+                opacity="0.15"
+              />
+              <text
+                x="211"
+                y="233"
+                font-size="10"
+                font-family="Barlow, Arial"
+                text-anchor="middle"
+                fill="#16a34a"
+                font-weight="700"
+              >
+                TRABAJO
+              </text>
+              <rect
+                x="290"
+                y="60"
+                width="88"
+                height="30"
+                rx="15"
+                fill="#1a8fe3"
+                opacity="0.9"
+              />
+              <text
+                x="334"
+                y="79"
+                font-size="11"
+                font-family="Barlow, Arial"
+                text-anchor="middle"
+                fill="white"
+                font-weight="700"
+              >
+                IA Activa ✦
+              </text>
+              <rect
+                x="22"
+                y="150"
+                width="34"
+                height="34"
+                rx="10"
+                fill="white"
+                opacity="0.9"
+                filter="url(#shadow2)"
+              />
+              <text x="39" y="173" font-size="18" text-anchor="middle">📧</text>
+              <defs>
+                <linearGradient
+                  id="envGrad"
+                  x1="30"
+                  y1="80"
+                  x2="30"
+                  y2="280"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0%" stop-color="#dde4f0" />
+                  <stop offset="100%" stop-color="#c8d2e4" />
+                </linearGradient>
+                <linearGradient
+                  id="flapGrad"
+                  x1="30"
+                  y1="10"
+                  x2="30"
+                  y2="80"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0%" stop-color="#c5cedf" />
+                  <stop offset="100%" stop-color="#d8e0ee" />
+                </linearGradient>
+                <linearGradient
+                  id="cardGrad"
+                  x1="70"
+                  y1="100"
+                  x2="70"
+                  y2="260"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0%" stop-color="white" />
+                  <stop offset="100%" stop-color="#f4f6fb" />
+                </linearGradient>
+                <filter id="shadow2">
+                  <feDropShadow
+                    dx="0"
+                    dy="2"
+                    stdDeviation="4"
+                    flood-opacity="0.12"
+                  />
+                </filter>
+              </defs>
+            </svg>
           </div>
         </div>
 
-        <div class="hints">
-          <span class="hint" onclick="setHint(this)">Ganaste premio ahora  </span>
-          <span class="hint" onclick="setHint(this)">Reunión de Proyecto</span>
-          <span class="hint" onclick="setHint(this)">Oferta especial descuento 50%</span>
-          <span class="hint" onclick="setHint(this)">Factura del mes</span>
+        <!-- RIGHT: formulario -->
+        <div class="right">
+          <div class="card">
+            <div class="card-eyebrow">Detector de correo</div>
+            <div class="card-title">Clasifica tu correo</div>
+
+            <input
+              id="texto"
+              type="text"
+              placeholder="Escribe asunto del correo"
+              autocomplete="off"
+            />
+
+            <button onclick="clasificar()" id="btn">
+              <span class="btn-icon" id="btn-icon"></span>
+              <span id="btn-text">Clasificar</span>
+              <div class="spinner" id="spinner"></div>
+            </button>
+
+            <div class="resultado" id="resultado"></div>
+
+            <div class="result-card" id="result-card">
+              <div class="result-label">Tu correo es:</div>
+              <div class="result-value">
+                <div class="dot"></div>
+                <span id="result-text">—</span>
+              </div>
+            </div>
+
+            <div class="hints">
+              <span class="hint" onclick="setHint(this)"
+                >Ganaste premio ahora
+              </span>
+              <span class="hint" onclick="setHint(this)"
+                >Reunión de Proyecto</span
+              >
+              <span class="hint" onclick="setHint(this)"
+                >Oferta especial descuento 50%</span
+              >
+              <span class="hint" onclick="setHint(this)">Factura del mes</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-  </div>
+      <div class="arrows">
+        <button class="arr">&#8249;</button>
+        <button class="arr">&#8250;</button>
+      </div>
+    </section>
 
-  <div class="arrows">
-    <button class="arr">&#8249;</button>
-    <button class="arr">&#8250;</button>
-  </div>
-</section>
+    <script>
+      function setHint(el) {
+        document.getElementById("texto").value = el.textContent;
+        document.getElementById("texto").focus();
+      }
 
-<script>
-  function setHint(el) {
-    document.getElementById("texto").value = el.textContent;
-    document.getElementById("texto").focus();
-  }
+      function clasificar() {
+        const texto = document.getElementById("texto").value.trim();
+        if (!texto) {
+          document.getElementById("texto").focus();
+          return;
+        }
 
-  function clasificar(){
-    const texto = document.getElementById("texto").value.trim();
-    if (!texto) { document.getElementById("texto").focus(); return; }
+        const btn = document.getElementById("btn");
+        const btnText = document.getElementById("btn-text");
+        const btnIcon = document.getElementById("btn-icon");
+        const spinner = document.getElementById("spinner");
 
-    const btn = document.getElementById("btn");
-    const btnText = document.getElementById("btn-text");
-    const btnIcon = document.getElementById("btn-icon");
-    const spinner = document.getElementById("spinner");
+        btn.disabled = true;
+        btnText.textContent = "Clasificando…";
+        btnIcon.style.display = "none";
+        spinner.style.display = "block";
 
-    btn.disabled = true;
-    btnText.textContent = "Clasificando…";
-    btnIcon.style.display = "none";
-    spinner.style.display = "block";
+        fetch("/clasificar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ texto }),
+        })
+          .then((r) => r.json())
+          .then((data) => {
+            document.getElementById("resultado").innerHTML =
+              "Clasificación: " + data.categoria;
+            document.getElementById("result-text").textContent = data.categoria;
+            const rc = document.getElementById("result-card");
+            rc.style.display = "block";
+            rc.style.animation = "none";
+            void rc.offsetWidth;
+            rc.style.animation = "";
+          })
+          .catch(() => {
+            document.getElementById("result-text").textContent =
+              "Error al clasificar";
+            document.getElementById("result-card").style.display = "block";
+          })
+          .finally(() => {
+            btn.disabled = false;
+            btnText.textContent = "Clasificar";
+            btnIcon.style.display = "inline";
+            spinner.style.display = "none";
+          });
+      }
 
-    fetch("/clasificar", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ texto })
-    })
-    .then(r => r.json())
-    .then(data => {
-      document.getElementById("resultado").innerHTML = "Clasificación: " + data.categoria;
-      document.getElementById("result-text").textContent = data.categoria;
-      const rc = document.getElementById("result-card");
-      rc.style.display = "block";
-      rc.style.animation = "none";
-      void rc.offsetWidth;
-      rc.style.animation = "";
-    })
-    .catch(() => {
-      document.getElementById("result-text").textContent = "Error al clasificar";
-      document.getElementById("result-card").style.display = "block";
-    })
-    .finally(() => {
-      btn.disabled = false;
-      btnText.textContent = "Clasificar";
-      btnIcon.style.display = "inline";
-      spinner.style.display = "none";
-    });
-  }
-
-  document.getElementById("texto").addEventListener("keydown", e => {
-    if (e.key === "Enter") clasificar();
-  });
-</script>
-</body>
+      document.getElementById("texto").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") clasificar();
+      });
+    </script>
+  </body>
 </html>
