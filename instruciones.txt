@@ -1,0 +1,45 @@
+# redes-neuronales
+# 
+# Proyecto de clasificación utilizando Perceptrón y Adaline con interfaz web en Flask.
+# 
+# Instalación y ejecución:
+# 
+# 1. Clonar el repositorio:
+#    git clone https://github.com/Widintony-Bikelifee/redes-neuronales
+#    cd redes-neuronales
+# 
+# 2. Crear entorno virtual:
+#    python -m venv env
+# 
+# 3. Activar entorno virtual (Windows PowerShell):
+#    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+#    .\env\Scripts\activate
+# 
+# 4. Instalar dependencias:
+#    pip install numpy
+#    pip install flask
+# 
+# 5. Ejecutar aplicación:
+#    python app.py
+# 
+# Requisitos:
+# 
+# - Python 3.13
+# - NumPy
+# - Flask
+# 
+# Bibliografía:
+# 
+# - Nicepage. Comience su viaje en casi cualquier lugar - Plantilla HTML.
+#   https://nicepage.com/es/ht/3544585/comience-su-viaje-en-casi-cualquier-lugar-plantilla-html
+# 
+# - PlantillasHTMLGratis. Plantilla Web Gratis: Ogistic.
+#   https://plantillashtmlgratis.com/todas-las-plantillas/plantilla/plantilla-web-gratis-ogistic/
+# 
+# - Adrian Rosebrock. Implementing the Perceptron Neural Network with Python.
+#   https://pyimagesearch.com/2021/05/06/implementing-the-perceptron-neural-network-with-python/
+# 
+# - Render. Deploying on Render.
+#   https://render.com/docs/deploys
+# 
+
